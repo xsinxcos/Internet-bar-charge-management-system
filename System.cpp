@@ -13,10 +13,10 @@ void LoginPage() {
 	char password[30];
 	printf("					输入登录的管理员信息：\n");
 	printf("					ID：\n					");
-	scanf("%s", ID);
-	printf("\n");
-	printf("					密码：\n					");
-	scanf("%s", password);
+//	scanf("%s", ID);
+//	printf("\n");
+//	printf("					密码：\n					");
+//	scanf("%s", password);
 	printf("\n");
 	if (Login(&AList, ID, password) == false) {
 		printf("					登录失败，账号不存在或者密码错误\n");
@@ -25,7 +25,6 @@ void LoginPage() {
 	{
 		printf("					登录成功，即将返回首页\n");
 	}
-	_sleep(1500);
 	system("cls");
 	//beginPage();
 }		
@@ -59,7 +58,7 @@ bool Login(Adminlist *Alist, char* ID ,char* password) {
 void ExitLoginPage() {
 	printf("						退出登录成功,即将回到上一页\n");
 	exitLogin();
-	_sleep(1500);
+//	_sleep(1500);
 	system("cls");
 	//beginPage();
 }
