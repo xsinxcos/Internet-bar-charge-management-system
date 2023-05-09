@@ -34,209 +34,37 @@ int main(void)
 		switch (operate)					
 		{
 		case '1':
-			if (cardManagementKey == false) {
-				printf("						无权限，即将返回上一页\n");
-				_sleep(1500);
-				system("cls");
-				break;
-			}
-			while (1)			//这是第二层循环，循环的卡管理页面(使用switch case实现子功能)
-			{
-				
+			if(rightJudgement(cardManagementKey)){
 				cardManagement();
-				operate = 0;
-				scanf(" %c", &operate);
-				while (operate - '0' <= 0 || operate - '0' >= 6) {
-					printf("输入错误，请重新输入\n");
-					scanf(" %c", &operate);
-				}
-				system("cls");
-				switch (operate)
-				{
-				case '1':
-					addCardPage();
-					_sleep(1500);
-					system("cls");
-					break;
-				case '2':
-					while (1)				//这是第三层循环，循环的查询卡页面
-					{
-						enquiryCardPage();
-						operate = 0;
-						scanf(" %c", &operate);
-						getchar();
-						while (operate - '0' < 0 || operate - '0' >= 2) {
-							printf("输入错误，请重新输入\n");
-							scanf(" %c", &operate);
-						}
-						system("cls");
-						if (operate == '0') {
-							break;
-						}
-					}
-					break;
-				case '3':
-					while (1)				//这是第三层循环，循环的注销卡页面
-					{
-						deleteCardPage();
-						operate = 0;
-						scanf(" %c", &operate);
-						while (operate - '0' < 0 || operate - '0' >= 2) {
-							printf("输入错误，请重新输入\n");
-							scanf(" %c", &operate);
-						}
-						system("cls");
-						if (operate == '0') {
-							break;
-						}
-					}
-					break;
-				case '4':
-					//returnOnepage();
-					break;
-				case '5':
-					Exit();
-					break;
-				default:
-					printf("error：输入的字符不符合要求，请重新输入\n\n");
-					break;
-				}
-				if (operate == '4') {
-					system("cls");
-					break;
-				}
 			}
 			break;
 		case '2':
-			if (BillingStanderManaagementKey == false) {
-				printf("						无权限，即将返回上一页\n");
-				_sleep(1500);
-				system("cls");
-				break;
+			if (rightJudgement(BillingStanderManaagementKey)) {
+				billingStandardManagement();
 			}
-			billingStandardManagement();
 			break;
 		case '3':
-			if (BillingManagementKey == false) {
-				printf("						无权限，即将返回上一页\n");
-				_sleep(1500);
-				system("cls");
-				break;
+			if (rightJudgement(BillingManagementKey)) {
+				billingManagement();
 			}
-			billingManagement();
 			break;
 		case '4':
-			if (costManagementKey == false) {
-				printf("						无权限，即将返回上一页\n");
-				_sleep(1500);
-				system("cls");
-				break;
+			if (rightJudgement(costManagementKey)) {
+				costManagement();
 			}
-			costManagement();
 			break;
 		case '5':
-			if (queryStatisicsKey == false) {
-				printf("						无权限，即将返回上一页\n");
-				_sleep(1500);
-				system("cls");
-				break;
+			if (rightJudgement(queryStatisicsKey)) {
+				queryStatistics();
 			}
-			queryStatistics();
 			break;
 		case '6':
-			if (rightsManagementKey == false) {
-				printf("						无权限，即将返回上一页\n");
-				_sleep(1500);
-				system("cls");
-				break;
-			}
-			while (1)					//第二层循环，循环的是权限管理系统
-			{
+			if (rightJudgement(rightsManagementKey)) {
 				rightsManagement();
-				operate = 0;
-				scanf(" %c", &operate);
-				while (operate - '0' <= 0 || operate - '0' >= 6) {
-					printf("输入错误，请重新输入\n");
-					scanf(" %c", &operate);
-				}
-				system("cls");
-				switch (operate)
-				{
-				case '1':
-					addAdministratorPage();
-					break;
-				case '2':
-					while (1)					//这是第三行循环，循环的是删除管理员页面
-					{
-						deleteAdministratorPage();
-						operate = 0;
-						scanf(" %c", &operate);
-						while (operate - '0' < 0 || operate - '0' >= 2) {
-							printf("输入错误，请重新输入\n");
-							scanf(" %c", &operate);
-						}
-						system("cls");
-						if (operate == '0') {
-							break;
-						}
-					}
-					break;
-				case '3':
-					configuepermissionPage();
-					system("cls");
-					break;
-				case '4':
-					break;
-				case '5':
-					Exit();
-					break;
-				default:
-					printf("error：输入的字符不符合要求，请重新输入\n\n");
-					break;
-				}
-				if (operate == '4') {
-					system("cls");
-					break;
-				}
 			}
 			break;
 		case '7':
-			while (1)					//这是第二层循环，循环的是系统页面（用于管理员登录）
-			{
-				System();
-				operate = 0;
-				scanf(" %c", &operate);
-				while (operate - '0' <= 0 || operate - '0' >= 4) {
-					printf("输入错误，请重新输入\n");
-					scanf(" %c", &operate);
-				}
-				system("cls");
-				switch (operate)
-				{
-				case '1':
-					LoginPage();
-					break;
-				case '2':
-					ExitLoginPage();
-					break;
-				case '3':
-					//returnOnepage();
-					break;
-				default:
-					printf("error：输入的字符不符合要求，请重新输入\n\n");
-					break;
-				}
-				if (operate == '3') {
-					system("cls");
-					break;
-				}
-			}
-			break;
-		case '8':
-			Exit();
-			break;
-		default:
-			printf("error：输入的字符不符合要求，请重新输入\n\n");
+			System();
 			break;
 		}
 	}

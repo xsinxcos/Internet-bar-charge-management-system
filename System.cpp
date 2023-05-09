@@ -9,25 +9,51 @@ extern bool rightsManagementKey;				//权限管理权限
 extern Adminlist AList;							//全局变量，储存管理员信息
 
 void LoginPage() {
-	char ID[30];
-	char password[30];
-	printf("					输入登录的管理员信息：\n");
-	printf("					ID：\n					");
-	scanf("%s", ID);
-	printf("\n");
-	printf("					密码：\n					");
-	scanf("%s", password);
-	printf("\n");
-	if (Login(&AList, ID, password) == false) {
-		printf("					登录失败，账号不存在或者密码错误\n");
+	while (1) {
+		char ID[30];
+		char password[30];
+		printf("					输入登录的管理员信息：\n");
+		printf("					ID：\n					");
+		scanf("%s", ID);
+		printf("\n");
+		printf("					密码：\n					");
+		scanf("%s", password);
+		printf("\n");
+		if (Login(&AList, ID, password) == false) {
+			printf("					登录失败，账号不存在或者密码错误\n");
+		}
+		else
+		{
+			printf("					登录成功，即将返回首页\n");
+		}
+		_sleep(1500);
+		system("cls");
+		char operate = 0;
+		scanf(" %c", &operate);
+		while (operate - '0' <= 0 || operate - '0' >= 4) {
+			printf("输入错误，请重新输入\n");
+			scanf(" %c", &operate);
+		}
+		system("cls");
+		switch (operate)
+		{
+		case '1':
+			LoginPage();
+			break;
+		case '2':
+			ExitLoginPage();
+			break;
+		case '3':
+			//returnOnepage();
+			break;
+		default:
+			printf("error：输入的字符不符合要求，请重新输入\n\n");
+			break;
+		}
+		if (operate == '3') {
+			break;
+		}
 	}
-	else
-	{
-		printf("					登录成功，即将返回首页\n");
-	}
-	_sleep(1500);
-	system("cls");
-	//beginPage();
 }		
 
 bool Login(Adminlist *Alist, char* ID ,char* password) {

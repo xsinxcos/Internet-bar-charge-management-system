@@ -64,45 +64,47 @@ void beginPage(void)
 }
 
 void cardManagement() {
-	printf("			  （￣へ￣）-----------------------------------------\n");
-	printf("					欢迎使用网吧收费管理系统\n");
-	printf("				 请输入以下命令所对应的数字进行相关操作\n");
-	printf("\n");
-	printf("\n");
-	printf("				1.添加卡\t2.查询卡\t3.注销卡\t\n");
-	printf("\n");
-	printf("				4.返回上一页\t5.退出程序\t\n");
-	printf("\n");
-	printf("			  ---------------------------------------------------\n");
-	/*char operate = 0;
-	scanf(" %c", &operate);
-	while (operate - '0' <= 0 || operate - '0' >= 6) {
-		printf("输入错误，请重新输入\n");
+	while (1) {
+		printf("			  （￣へ￣）-----------------------------------------\n");
+		printf("					欢迎使用网吧收费管理系统\n");
+		printf("				 请输入以下命令所对应的数字进行相关操作\n");
+		printf("\n");
+		printf("\n");
+		printf("				1.添加卡\t2.查询卡\t3.注销卡\t\n");
+		printf("\n");
+		printf("				4.返回上一页\t5.退出程序\t\n");
+		printf("\n");
+		printf("			  ---------------------------------------------------\n");
+		char operate = 0;
 		scanf(" %c", &operate);
+		while (operate - '0' <= 0 || operate - '0' >= 6) {
+			printf("输入错误，请重新输入\n");
+			scanf(" %c", &operate);
+		}
+		system("cls");
+		switch (operate)
+		{
+		case '1':
+			addCardPage();
+			break;
+		case '2':
+			enquiryCardPage();
+			break;
+		case '3':
+			deleteCardPage();
+			break;
+		case '4':
+			break;
+		case '5':
+			Exit();
+			break;
+		default:
+			printf("error：输入的字符不符合要求，请重新输入\n\n");
+			break;
+		}
+		if (operate == '4')
+			break;
 	}
-	system("cls");
-	switch (operate)
-	{
-	case '1':
-		addCardPage();
-		break;
-	case '2':
-		enquiryCardPage();
-		break;
-	case '3':
-		deleteCardPage();
-		break;
-	case '4':
-		returnOnepage();
-		break;
-	case '5':
-		Exit();
-		break;
-	default:
-		printf("error：输入的字符不符合要求，请重新输入\n\n");
-		break;
-	}
-	exit(0);*/
 };
 
 void billingStandardManagement(void) {
@@ -273,81 +275,85 @@ void queryStatistics(void) {
 };
 
 void rightsManagement(void) {
-	printf("			  （￣へ￣）-----------------------------------------\n");
-	printf("					欢迎使用网吧收费管理系统\n");
-	printf("				 请输入以下命令所对应的数字进行相关操作\n");
-	printf("\n");
-	printf("\n");
-	printf("				1.添加管理员\t2.删除管理员\t3.配置权限\t\n");
-	printf("\n");
-	printf("				4.返回上一页\t5.退出程序\t\n");
-	printf("\n");
-	printf("			  ---------------------------------------------------\n");
-	/*char operate = 0;
-	scanf(" %c", &operate);
-	while (operate - '0' <= 0 || operate - '0' >= 6) {
-		printf("输入错误，请重新输入\n");
+	while (1) {
+		printf("			  （￣へ￣）-----------------------------------------\n");
+		printf("					欢迎使用网吧收费管理系统\n");
+		printf("				 请输入以下命令所对应的数字进行相关操作\n");
+		printf("\n");
+		printf("\n");
+		printf("				1.添加管理员\t2.删除管理员\t3.配置权限\t\n");
+		printf("\n");
+		printf("				4.返回上一页\t5.退出程序\t\n");
+		printf("\n");
+		printf("			  ---------------------------------------------------\n");
+		char operate = 0;
 		scanf(" %c", &operate);
+		while (operate - '0' <= 0 || operate - '0' >= 6) {
+			printf("输入错误，请重新输入\n");
+			scanf(" %c", &operate);
+		}
+		system("cls");
+		switch (operate)
+		{
+		case '1':
+			addAdministratorPage();
+			break;
+		case '2':
+			deleteAdministratorPage();
+			break;
+		case '3':
+			configuepermissionPage();
+			break;
+		case '4':
+			break;
+		case '5':
+			Exit();
+			break;
+		default:
+			printf("error：输入的字符不符合要求，请重新输入\n\n");
+			break;
+		}
+		if (operate == '4')
+			break;
 	}
-	system("cls");
-	switch (operate)
-	{
-	case '1':
-		addAdministratorPage();
-		break;
-	case '2':
-		deleteAdministratorPage();
-		break;
-	case '3':
-		configuepermissionPage();
-		break;
-	case '4':
-		returnOnepage();
-		break;
-	case '5':
-		Exit();
-		break;
-	default:
-		printf("error：输入的字符不符合要求，请重新输入\n\n");
-		break;
-	}
-	exit(0);*/
 };
 
 void System(void) {
-	printf("			  （￣へ￣）-----------------------------------------\n");
-	printf("					欢迎使用网吧收费管理系统\n");
-	printf("				 请输入以下命令所对应的数字进行相关操作\n");
-	printf("\n");
-	printf("\n");
-	printf("				1.登录\t      2.退出登录\t   3.返回上一页\t\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("			  ---------------------------------------------------\n");
-	char /*operate = 0;
-	scanf(" %c", &operate);
-	while (operate - '0' <= 0 || operate - '0' >= 4) {
-		printf("输入错误，请重新输入\n");
+	while (1) {
+		printf("			  （￣へ￣）-----------------------------------------\n");
+		printf("					欢迎使用网吧收费管理系统\n");
+		printf("				 请输入以下命令所对应的数字进行相关操作\n");
+		printf("\n");
+		printf("\n");
+		printf("				1.登录\t   2.退出登录\t   3.返回上一页\t\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("			  ---------------------------------------------------\n");
+		char operate = 0;
 		scanf(" %c", &operate);
+		while (operate - '0' <= 0 || operate - '0' >= 4) {
+			printf("输入错误，请重新输入\n");
+			scanf(" %c", &operate);
+		}
+		system("cls");
+		switch (operate)
+		{
+		case '1':
+			LoginPage();
+			break;
+		case '2':
+			ExitLoginPage();
+			break;
+		case '3':
+			break;
+		default:
+			printf("error：输入的字符不符合要求，请重新输入\n\n");
+			break;
+		}
+		if (operate == '3')
+			break;
 	}
-	system("cls");
-	switch (operate)
-	{
-	case '1':
-		LoginPage();
-		break;
-	case '2':
-		ExitLoginPage();
-		break;
-	case '3':
-		returnOnepage();
-		break;
-	default:
-		printf("error：输入的字符不符合要求，请重新输入\n\n");
-		break;
-	}*/
-	exit(0);
 };
 
 void Exit(void) {
@@ -364,4 +370,14 @@ void initRights(void) {
 	BillingStanderManaagementKey = false;
 	queryStatisicsKey = false;
 	rightsManagementKey = false;
+}
+
+bool rightJudgement(bool rightKey) {
+	if (rightKey == false) {
+		printf("						无权限，即将返回上一页\n");
+		_sleep(1500);
+		system("cls");
+		return false;
+	}
+	return true;
 }

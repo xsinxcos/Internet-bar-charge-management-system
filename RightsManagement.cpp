@@ -24,7 +24,6 @@ void addAdministratorPage() {
 	else printf("					添加失败\n");
 	_sleep(1500);
 	system("cls");
-	//rightsManagement();
 }
 
 bool addAdmin(Adminlist *Alist,char* ID, char* password) {
@@ -33,10 +32,6 @@ bool addAdmin(Adminlist *Alist,char* ID, char* password) {
 	strcpy(p->AdminPassword, password);
 	p->next = NULL;
 	Administrator* temp = Alist->head;
-	/*if (!temp) {
-		temp->next = p;
-		return true;
-	}*/
 	while (temp->next)
 	{
 		temp = temp->next;
@@ -46,35 +41,31 @@ bool addAdmin(Adminlist *Alist,char* ID, char* password) {
 }
 
 void deleteAdministratorPage() {
-	char checkID[30];
-	printf("					输入需要进行删除的管理员ID\n");
-	printf("					ID：\n					");
-	scanf("%s", checkID);
-	bool flag = deleteAdmin(&AList, checkID);				//使用flag来接收是否注销成功
-	if (flag == false) {
-		printf("					删除失败，请重新确认管理员账号ID是否错误\n");
-	}
-	else {
-		printf("					注销成功\n");
-		saveAdmindata(&AList);
-	}
-	printf("					输入数字1后，继续进行删除\n					输入数字0，退出删除\n");
-	/*char operate = 0;
-	scanf(" %c", &operate);
-	while (operate - '0' < 0 || operate - '0' >= 2) {
-		printf("输入错误，请重新输入\n");
+	while (1) {
+		char checkID[30];
+		printf("					输入需要进行删除的管理员ID\n");
+		printf("					ID：\n					");
+		scanf("%s", checkID);
+		bool flag = deleteAdmin(&AList, checkID);				//使用flag来接收是否注销成功
+		if (flag == false) {
+			printf("					删除失败，请重新确认管理员账号ID是否错误\n");
+		}
+		else {
+			printf("					注销成功\n");
+			saveAdmindata(&AList);
+		}
+		printf("					输入数字1后，继续进行删除\n					输入数字0，退出删除\n");
+		char operate = 0;
 		scanf(" %c", &operate);
+		while (operate - '0' < 0 || operate - '0' >= 2) {
+			printf("输入错误，请重新输入\n");
+			scanf(" %c", &operate);
+		}
+		system("cls");
+		if (operate == '0') {
+			break;
+		}
 	}
-	system("cls");
-	switch (operate)
-	{
-	case '0':
-		rightsManagement();
-		break;
-	case '1':
-		deleteAdministratorPage();
-		break;
-	}*/
 }
 
 bool deleteAdmin(Adminlist* Alist, char* checkID) {

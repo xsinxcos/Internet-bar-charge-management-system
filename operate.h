@@ -41,6 +41,7 @@ void queryStatistics(void)	;				//查询统计(未实现）
 void rightsManagement(void);				//权限管理
 void System(void);							//系统(未实现)
 void Exit(void);							//退出
+bool rightJudgement(bool rightKey);			//权限判断
 void returnOnepage();
 
 void addCardPage();								//添加卡页面
