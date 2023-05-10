@@ -24,7 +24,10 @@ void LoginPage() {
 		}
 		else
 		{
-			printf("					登录成功，即将返回首页\n");
+			printf("					登录成功，即将返回上一页\n");
+			_sleep(1500);
+			system("cls");
+			return;
 		}
 		_sleep(1500);
 		system("cls");
