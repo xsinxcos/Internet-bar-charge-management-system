@@ -31,6 +31,11 @@ typedef struct Adminhead {
 	Administrator* head;
 }Adminlist;
 
+typedef struct charge {
+	char time1[10],time2[10];
+	double money;
+	struct charge* next;
+}chargelist;
 void initRights(void);
 void beginPage(void);						//一开始进入时的页面的调用
 void cardManagement(void);					//卡管理函数
@@ -70,6 +75,9 @@ cardnode* enquiryCard();												//查询卡
 bool deleteCard(cardlist* Alist, char* checkID, char* checkpassword);	//注销卡
 void saveListdata(cardlist* Alist);										//数据保存（卡）
 void loadingListdata(cardlist* Alist);									//数据读取（卡）
+
+void ListInitiate(chargelist** Clist);
+void newchargingStandardPage();
 
 void initAdminList(Adminlist* Alist);									//初始化管理员名单
 bool addAdmin(Adminlist* Alist, char* ID, char* password);				//添加管理员
