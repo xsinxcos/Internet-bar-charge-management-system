@@ -46,9 +46,8 @@ void addCardPage() {
 		saveListdata(&List);
 	}
 	else printf("					添加失败\n");
-	/*_sleep(1500);
+	_sleep(1500);
 	system("cls");
-	cardManagement();*/
 }
 cardnode* enquiryCard(cardlist *Alist ,char *checkID) {
 	cardnode* p = Alist->head;

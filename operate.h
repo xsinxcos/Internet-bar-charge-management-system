@@ -36,6 +36,7 @@ typedef struct charge {
 	double money;
 	struct charge* next;
 }chargelist;
+
 void initRights(void);
 void beginPage(void);						//一开始进入时的页面的调用
 void cardManagement(void);					//卡管理函数
