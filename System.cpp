@@ -21,6 +21,9 @@ void LoginPage() {
 		printf("\n");
 		if (Login(&AList, ID, password) == false) {
 			printf("					登录失败，账号不存在或者密码错误\n");
+			_sleep(1500);
+			system("cls");
+			continue;
 		}
 		else
 		{

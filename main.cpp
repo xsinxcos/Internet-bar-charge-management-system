@@ -73,6 +73,9 @@ int main(void)
 		case '7':
 			System();
 			break;
+		case'8':
+			Exit();
+			break;
 		}
 	}
 	return 0;
