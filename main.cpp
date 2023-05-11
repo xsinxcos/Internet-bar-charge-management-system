@@ -5,6 +5,7 @@
 
 cardlist List;		//全局变量，储存卡的信息
 Adminlist AList;	//全局变量，储存管理员信息
+chargelist *Clist;       //全局变量，储存计费标准
 
 bool cardManagementKey;					//卡管理权限
 bool costManagementKey;					//计费管理权限
@@ -20,6 +21,12 @@ int main(void)
 	initAdminList(&AList);
 	loadingListdata(&List);
 	loadingAdmindata(&AList);
+	cardManagementKey = true;					//卡管理权限
+	costManagementKey=true;					//计费管理权限
+	BillingManagementKey=true;				//费用管理权限
+	BillingStanderManaagementKey=true;		//计费标准管理权限
+	queryStatisicsKey=true;					//查询统计权限
+	rightsManagementKey=true;				//权限管理权限
 	while (1)								//第一层循环为begin页(使用switch case实现子功能)
 	{
 		system("cls");
