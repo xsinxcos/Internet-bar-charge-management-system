@@ -30,9 +30,8 @@ void newchargingStandardPage() {
 			printf("					新增成功，即将返回上一页\n");
 		}
 		else printf("					无需新增，即将返回上一页\n");
-		/*_sleep(1500);
-		system("cls");
-		cardManagement();*/
+		_sleep(1500);
+		
 }
 void enquirychargingStandardPage() {
 	char time[10];
@@ -42,8 +41,12 @@ void enquirychargingStandardPage() {
 	while (p != NULL) {
 		if (strcmp(p->time1, time) < 0) {
 			printf("					计费标准为：%.2f\n",p->money);
+			printf("					查询成功，即将返回上一页\n");
 		}
+		p = p->next;
 	}
+	_sleep(1500);
+	system("cls");
 }
 void deletechargingStandardPage() {
 

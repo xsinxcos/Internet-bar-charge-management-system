@@ -108,48 +108,50 @@ void cardManagement() {
 };
 
 void billingStandardManagement(void) {
-	printf("			  （￣へ￣）-----------------------------------------\n");
-	printf("					欢迎使用网吧收费管理系统\n");
-	printf("				 请输入以下命令所对应的数字进行相关操作\n");
-	printf("\n");
-	printf("\n");
-	printf("				1.新增计费标准\t2.查询计费标准\t3.删除计费标准\t\n");
-	printf("\n");
-	printf("				4.修改计费标准\t5.返回上一页\t6.退出程序\t\n");
-	printf("\n");
-	printf("			  ---------------------------------------------------\n");
-	char operate = 0;
-	scanf(" %c", &operate);
-	while (operate - '0' <= 0 || operate - '0' >= 7) {
-		printf("输入错误，请重新输入\n");
-		scanf(" %c", &operate);
+	while (1) {
+		system("cls");
+	    printf("			  （￣へ￣）-----------------------------------------\n");
+	    printf("					欢迎使用网吧收费管理系统\n");
+	    printf("				 请输入以下命令所对应的数字进行相关操作\n");
+	    printf("\n");
+	    printf("\n");
+	    printf("				1.新增计费标准\t2.查询计费标准\t3.删除计费标准\t\n");
+	    printf("\n");
+	    printf("				4.修改计费标准\t5.返回上一页\t6.退出程序\t\n");
+	    printf("\n");
+	    printf("			  ---------------------------------------------------\n");
+	    char operate = 0;
+	    scanf(" %c", &operate);
+	    while (operate - '0' <= 0 || operate - '0' >= 7) {
+		    printf("输入错误，请重新输入\n");
+		    scanf(" %c", &operate);
+	     }
+	     system("cls");
+	     switch (operate)
+	     {
+	     case '1':
+		       newchargingStandardPage();
+		       break;
+	     case '2':
+		       enquirychargingStandardPage();
+		       break;
+	     case '3':
+		       deletechargingStandardPage();
+		       break;
+	     case '4':
+		       changechargingStandardPage();
+		       break;
+	     case '5':
+		       break;
+	     case '6':
+		       Exit();
+		       break;
+	     default:
+		       printf("error：输入的字符不符合要求，请重新输入\n\n");
+		       break;
+	     }
+		 if (operate == '5') break;
 	}
-	system("cls");
-	switch (operate)
-	{
-	case '1':
-		newchargingStandardPage();
-		break;
-	case '2':
-		enquirychargingStandardPage();
-		break;
-	case '3':
-		deletechargingStandardPage();
-		break;
-	case '4':
-		changechargingStandardPage();
-		break;
-	case '5':
-		returnOnepage();
-		break;
-	case '6':
-		Exit();
-		break;
-	default:
-		printf("error：输入的字符不符合要求，请重新输入\n\n");
-		break;
-	}
-	exit(0);
 };
 
 void billingManagement(void) {
