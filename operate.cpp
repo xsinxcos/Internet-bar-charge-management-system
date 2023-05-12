@@ -65,6 +65,7 @@ void beginPage(void)
 
 void cardManagement() {
 	while (1) {
+		system("cls");
 		printf("			  （￣へ￣）-----------------------------------------\n");
 		printf("					欢迎使用网吧收费管理系统\n");
 		printf("				 请输入以下命令所对应的数字进行相关操作\n");
@@ -194,43 +195,45 @@ void billingManagement(void) {
 };
 
 void costManagement(void) {
-	printf("			  （￣へ￣）-----------------------------------------\n");
-	printf("					欢迎使用网吧收费管理系统\n");
-	printf("				 请输入以下命令所对应的数字进行相关操作\n");
-	printf("\n");
-	printf("\n");
-	printf("				1.充值\t      2.退费\t   3.返回上一页\t\n");
-	printf("\n");
-	printf("				4.退出程序\t\n");
-	printf("\n");
-	printf("			  ---------------------------------------------------\n");
-	char operate = 0;
-	scanf(" %c", &operate);
-	while (operate - '0' <= 0 || operate - '0' >= 5) {
-		printf("输入错误，请重新输入\n");
+	while (1) {
+		system("cls");
+		printf("			  （￣へ￣）-----------------------------------------\n");
+		printf("					欢迎使用网吧收费管理系统\n");
+		printf("				 请输入以下命令所对应的数字进行相关操作\n");
+		printf("\n");
+		printf("\n");
+		printf("				1.充值\t      2.退费\t   3.返回上一页\t\n");
+		printf("\n");
+		printf("				4.退出程序\t\n");
+		printf("\n");
+		printf("			  ---------------------------------------------------\n");
+		char operate = 0;
 		scanf(" %c", &operate);
+		while (operate - '0' <= 0 || operate - '0' >= 5) {
+			printf("输入错误，请重新输入\n");
+			scanf(" %c", &operate);
+		}
+		system("cls");
+		switch (operate)
+		{
+		case '1':
+			RechargePage();
+			break;
+		case '2':
+			returnChargePage();
+			break;
+		case '3':
+			break;
+		case '4':
+			Exit();
+			break;
+		default:
+			printf("error：输入的字符不符合要求，请重新输入\n\n");
+			break;
+		}
+		if (operate == '3')
+			break;
 	}
-	system("cls");
-	switch (operate)
-	{
-	case '1':
-		RechargePage();
-		break;
-	case '2':
-		returnChargePage();
-		break;
-	case '3':
-		returnOnepage();
-		break;
-	case '4':
-		Exit();
-		break;
-	default:
-		printf("error：输入的字符不符合要求，请重新输入\n\n");
-		break;
-	}
-	exit(0);
-
 };
 
 void queryStatistics(void) {

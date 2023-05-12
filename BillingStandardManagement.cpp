@@ -7,34 +7,34 @@ void ListInitiate(chargelist **Clist) {
 	(*Clist)->next = NULL;
 }
 void newchargingStandardPage() {
-		int tag;                                                                      //ÅĞ¶ÏÊÇ·ñĞèÒªĞÂÔö¼Æ·Ñ±ê×¼
-		printf("					ÇëÈ·¶¨ÊÇ·ñĞèÒªĞÂÔö¼Æ·Ñ±ê×¼£¨1ÎªĞèÒª£¬0Îª²»ĞèÒª£©£º\n");
+		int tag;                                                                      //åˆ¤æ–­æ˜¯å¦éœ€è¦æ–°å¢è®¡è´¹æ ‡å‡†
+		printf("					è¯·ç¡®å®šæ˜¯å¦éœ€è¦æ–°å¢è®¡è´¹æ ‡å‡†ï¼ˆ1ä¸ºéœ€è¦ï¼Œ0ä¸ºä¸éœ€è¦ï¼‰ï¼š\n					");
 		scanf("%d", &tag);
 		if (tag != 1 && tag != 0) {
-			printf("					ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë£º\n");
+			printf("					è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š\n");
 			scanf("%d", &tag);
 		}
 		if (tag == 1) {
 			ListInitiate(&Clist);
 			chargelist* rear = Clist;
-			printf("					ÊäÈë¼Æ·Ñ±ê×¼£º\n");
+			printf("					è¾“å…¥è®¡è´¹æ ‡å‡†ï¼š\n");
 			while (1) {
 				chargelist* p = (chargelist*)malloc(sizeof(chargelist));
-				printf("					ÊäÈëÄ³¸öÊ±¼ä¶ÎµÄ¼Æ·Ñ±ê×¼(ÀıÈç0£º00)£º\n");
-				printf("					µ±ÊäÈëtimeÊ±½áÊø\n");
+				printf("					è¾“å…¥æŸä¸ªæ—¶é—´æ®µçš„è®¡è´¹æ ‡å‡†(ä¾‹å¦‚0ï¼š00)ï¼š\n");
+				printf("					å½“è¾“å…¥timeæ—¶ç»“æŸ\n");
 				scanf("%s%s", p->time1,p->time2);
-				if ( strcmp(p->time1,"time") ==0 ) break;
+				if ( strcmp(p->time1,"time") ==0 ) break;				
 				printf("\n");
-				printf("					ÊäÈë¸ÃÊ±¼ä¶ÎµÄ¼Æ·Ñ±ê×¼£¨Ôª/Ğ¡Ê±£©£º\n");
+				printf("					è¾“å…¥è¯¥æ—¶é—´æ®µçš„è®¡è´¹æ ‡å‡†ï¼ˆå…ƒ/å°æ—¶ï¼‰ï¼š\n				");
 				scanf("%lf", &p->money);
 				printf("\n");
 				rear->next = p;
 				rear = p;
 				p->next = NULL;
 			}
-			printf("					ĞÂÔö³É¹¦£¬¼´½«·µ»ØÉÏÒ»Ò³\n");
+			printf("					æ–°å¢æˆåŠŸï¼Œå³å°†è¿”å›ä¸Šä¸€é¡µ\n");
 		}
-		else printf("					ÎŞĞèĞÂÔö£¬¼´½«·µ»ØÉÏÒ»Ò³\n");
+		else printf("					æ— éœ€æ–°å¢ï¼Œå³å°†è¿”å›ä¸Šä¸€é¡µ\n");
 		_sleep(1500);
 		
 }
@@ -51,25 +51,25 @@ int my_strcmp(char* s1, char* s2) {
 }
 void enquirychargingStandardPage() {
 	char time[10];
-	printf("					ÊäÈëÉÏ»úÊ±¼ä£º\n");
+	printf("					è¾“å…¥ä¸Šæœºæ—¶é—´ï¼š\n				");
 	scanf("%s", time);
 	chargelist* p = Clist->next;
 
 	while (p != NULL) {
 		if (my_strcmp(p->time1, time) <= 0&&my_strcmp(p->time2,time)>0) {
-			printf("					¼Æ·Ñ±ê×¼Îª£º%.2f£¨Ôª/Ğ¡Ê±£©\n",p->money);
-			printf("					²éÑ¯³É¹¦£¬¼´½«·µ»ØÉÏÒ»Ò³\n");
+			printf("					è®¡è´¹æ ‡å‡†ä¸ºï¼š%.2fï¼ˆå…ƒ/å°æ—¶ï¼‰\n",p->money);
+			printf("					æŸ¥è¯¢æˆåŠŸï¼Œå³å°†è¿”å›ä¸Šä¸€é¡µ\n");
 			break;
 		}
 		p = p->next;
 	}
 	if (p == NULL) {
-		printf("					²éÑ¯Ê§°Ü\n");
-		printf("					ÊäÈëÊı×Ö1ºó£¬¼ÌĞø½øĞĞ²éÑ¯\n					ÊäÈëÊı×Ö0£¬ÍË³ö²éÑ¯\n");
+		printf("					æŸ¥è¯¢å¤±è´¥\n");
+		printf("					è¾“å…¥æ•°å­—1åï¼Œç»§ç»­è¿›è¡ŒæŸ¥è¯¢\n					è¾“å…¥æ•°å­—0ï¼Œé€€å‡ºæŸ¥è¯¢\n");
 		char operate=0;
 		scanf(" %c", &operate);
 		while (operate - '0' < 0 || operate - '0' >= 2) {
-			printf("					ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë\n");
+			printf("					è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 			scanf(" %c", &operate);
 		}
 		system("cls");
@@ -77,33 +77,33 @@ void enquirychargingStandardPage() {
 			enquirychargingStandardPage();
 		}
 		else if (operate == '0') {
-			printf("					¼´½«·µ»ØÉÏÒ»Ò³\n");
+			printf("					å³å°†è¿”å›ä¸Šä¸€é¡µ\n");
 		}
 	}
 	_sleep(1500);
 }
 void deletechargingStandardPage() {
 	char time1[10],time2[10];
-	printf("					ÊäÈëÏëÒªÉ¾³ıµÄ¼Æ·Ñ±ê×¼£¨Ä³¸öÊ±¼ä¶Î£©£º\n");
+	printf("					è¾“å…¥æƒ³è¦åˆ é™¤çš„è®¡è´¹æ ‡å‡†ï¼ˆæŸä¸ªæ—¶é—´æ®µï¼‰ï¼š\n");
 	scanf("%s%s", time1, time2);
 	chargelist* q=Clist,*p=q->next;
 	while (p != NULL) {
 		if (strcmp(p->time1, time1) == 0 && strcmp(p->time2, time2) == 0) {
 			q->next = p->next;
 			free(p);
-			printf("					É¾³ı³É¹¦£¬¼´½«·µ»ØÉÏÒ»Ò³\n");
+			printf("					åˆ é™¤æˆåŠŸï¼Œå³å°†è¿”å›ä¸Šä¸€é¡µ\n");
 			break;
 		}
 		q = p;
 		p = p->next;
 	}
 	if (p == NULL) {
-		printf("					²éÑ¯²»µ½¸ÃÊ±¼ä¶Î£¬É¾³ıÊ§°Ü\n");
-		printf("					ÊäÈëÊı×Ö1ºó£¬ÖØĞÂ½øĞĞÉ¾³ı\n					ÊäÈëÊı×Ö0£¬ÍË³öÉ¾³ı\n");
+		printf("					æŸ¥è¯¢ä¸åˆ°è¯¥æ—¶é—´æ®µï¼Œåˆ é™¤å¤±è´¥\n");
+		printf("					è¾“å…¥æ•°å­—1åï¼Œé‡æ–°è¿›è¡Œåˆ é™¤\n					è¾“å…¥æ•°å­—0ï¼Œé€€å‡ºåˆ é™¤\n");
 		char operate = 0;
 		scanf(" %c", &operate);
 		while (operate - '0' < 0 || operate - '0' >= 2) {
-			printf("					ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë\n");
+			printf("					è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 			scanf(" %c", &operate);
 		}
 		system("cls");
@@ -111,32 +111,32 @@ void deletechargingStandardPage() {
 			deletechargingStandardPage();
 		}
 		else if (operate == '0') {
-			printf("					¼´½«·µ»ØÉÏÒ»Ò³\n");
+			printf("					å³å°†è¿”å›ä¸Šä¸€é¡µ\n");
 		}
 	}
 	_sleep(1500);
 }
 void changechargingStandardPage() {
 	char time1[10], time2[10];
-	printf("					ÊäÈëÏëÒªĞŞ¸ÄµÄ¼Æ·Ñ±ê×¼£¨Ä³¸öÊ±¼ä¶Î£©£º\n");
+	printf("					è¾“å…¥æƒ³è¦ä¿®æ”¹çš„è®¡è´¹æ ‡å‡†ï¼ˆæŸä¸ªæ—¶é—´æ®µï¼‰ï¼š\n");
 	scanf("%s%s", time1, time2);
 	chargelist* p = Clist->next;
 	while (p != NULL) {
 		if (strcmp(p->time1, time1) == 0 && strcmp(p->time2, time2) == 0) {
-			printf("					ÊäÈëĞŞ¸ÄºóµÄ¼Æ·Ñ±ê×¼£¨Ôª/Ğ¡Ê±£©£º\n");
+			printf("					è¾“å…¥ä¿®æ”¹åçš„è®¡è´¹æ ‡å‡†ï¼ˆå…ƒ/å°æ—¶ï¼‰ï¼š\n");
 			scanf("%lf", &p->money);
-			printf("					ĞŞ¸Ä³É¹¦£¬¼´½«·µ»ØÉÏÒ»Ò³\n");
+			printf("					ä¿®æ”¹æˆåŠŸï¼Œå³å°†è¿”å›ä¸Šä¸€é¡µ\n");
 			break;
 		}
 		p = p->next;
 	}
 	if (p == NULL) {
-		printf("					²éÑ¯²»µ½¸ÃÊ±¼ä¶Î£¬ĞŞ¸ÄÊ§°Ü\n");
-		printf("					ÊäÈëÊı×Ö1ºó£¬ÖØĞÂ½øĞĞĞŞ¸Ä\n					ÊäÈëÊı×Ö0£¬ÍË³öĞŞ¸Ä\n");
+		printf("					æŸ¥è¯¢ä¸åˆ°è¯¥æ—¶é—´æ®µï¼Œä¿®æ”¹å¤±è´¥\n");
+		printf("					è¾“å…¥æ•°å­—1åï¼Œé‡æ–°è¿›è¡Œä¿®æ”¹\n					è¾“å…¥æ•°å­—0ï¼Œé€€å‡ºä¿®æ”¹\n");
 		char operate = 0;
 		scanf(" %c", &operate);
 		while (operate - '0' < 0 || operate - '0' >= 2) {
-			printf("					ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë\n");
+			printf("					è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 			scanf(" %c", &operate);
 		}
 		system("cls");
@@ -144,7 +144,7 @@ void changechargingStandardPage() {
 			changechargingStandardPage();
 		}
 		else if (operate == '0') {
-			printf("					¼´½«·µ»ØÉÏÒ»Ò³\n");
+			printf("					å³å°†è¿”å›ä¸Šä¸€é¡µ\n");
 		}
 	}
 	_sleep(1500);
