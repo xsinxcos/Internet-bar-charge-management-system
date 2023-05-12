@@ -46,9 +46,8 @@ void addCardPage() {
 		saveListdata(&List);
 	}
 	else printf("					添加失败\n");
-	/*_sleep(1500);
+	_sleep(1500);
 	system("cls");
-	cardManagement();*/
 }
 cardnode* enquiryCard(cardlist *Alist ,char *checkID) {
 	cardnode* p = Alist->head;
@@ -63,6 +62,7 @@ cardnode* enquiryCard(cardlist *Alist ,char *checkID) {
 
 void enquiryCardPage() {
 	while (1) {
+		system("cls");
 		char checkID[30];
 		printf("					输入需要进行查询的卡号\n");
 		printf("					卡号：\n					");
@@ -89,7 +89,6 @@ void enquiryCardPage() {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);
 		}
-		system("cls");
 		if (operate == '0') {
 			break;
 		}
@@ -139,7 +138,6 @@ void deleteCardPage() {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);
 		}
-		system("cls");
 		if (operate == '0') {
 			break;
 		}
