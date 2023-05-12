@@ -70,9 +70,9 @@ void configuepermissionPage();					//配置权限页面
 void LoginPage();								//登录页面
 void ExitLoginPage();							//退出登录页面
 
-void initCardList(cardlist* Alist);									//创建储存卡的链表
+void initCardList(cardlist* Alist);										//创建储存卡的链表
 bool addCard(cardlist* Alist, char* ID, char* password, float money);	//添加卡
-cardnode* enquiryCard();												//查询卡
+cardnode* enquiryCard(cardlist* Alist, char* checkID);					//查询卡
 bool deleteCard(cardlist* Alist, char* checkID, char* checkpassword);	//注销卡
 void saveListdata(cardlist* Alist);										//数据保存（卡）
 void loadingListdata(cardlist* Alist);									//数据读取（卡）
@@ -80,14 +80,17 @@ void loadingListdata(cardlist* Alist);									//数据读取（卡）
 void ListInitiate(chargelist** Clist);
 void newchargingStandardPage();
 
+bool Recharge(char* ID, char* password, float rechargeMoney);			//充值
+bool returnCharge(char* ID, char* password);							//退费
+
 void initAdminList(Adminlist* Alist);									//初始化管理员名单
 bool addAdmin(Adminlist* Alist, char* ID, char* password);				//添加管理员
-bool deleteAdmin(Adminlist* Alist,char* checkID);	//删除管理员
-Administrator* seekAdministrator(Adminlist* Alist, char* ID);	//查找对应ID的管理员结点并返回对应结点
-void configuePermission(Administrator* temp, char operate);	//进行对管理员权限的添加
-void addAdminNode(Adminlist* Alist, Administrator temp);	//用于数据读取提高读取效率
-void saveAdmindata(Adminlist* Alist);						//数据保存(管理员账号)
-void loadingAdmindata(Adminlist* Alist);									//数据读取（管理员账号）
+bool deleteAdmin(Adminlist* Alist,char* checkID);						//删除管理员
+Administrator* seekAdministrator(Adminlist* Alist, char* ID);			//查找对应ID的管理员结点并返回对应结点
+void configuePermission(Administrator* temp, char operate);				//进行对管理员权限的添加
+void addAdminNode(Adminlist* Alist, Administrator temp);				//用于数据读取提高读取效率
+void saveAdmindata(Adminlist* Alist);									//数据保存(管理员账号)
+void loadingAdmindata(Adminlist* Alist);								//数据读取（管理员账号）
 
 
 bool Login(Adminlist* Alist, char* ID, char* password);				//登录操作(超级管理员账号不用链表储存直接在代码中

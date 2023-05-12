@@ -62,6 +62,7 @@ cardnode* enquiryCard(cardlist *Alist ,char *checkID) {
 
 void enquiryCardPage() {
 	while (1) {
+		system("cls");
 		char checkID[30];
 		printf("					输入需要进行查询的卡号\n");
 		printf("					卡号：\n					");
@@ -88,7 +89,6 @@ void enquiryCardPage() {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);
 		}
-		system("cls");
 		if (operate == '0') {
 			break;
 		}
@@ -138,7 +138,6 @@ void deleteCardPage() {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);
 		}
-		system("cls");
 		if (operate == '0') {
 			break;
 		}
