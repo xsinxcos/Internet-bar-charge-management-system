@@ -18,6 +18,7 @@ int main(void)
 {
 	initRights();
 	initCardList(&List);
+	ListInitiate(&Clist);
 	loadingChargeListdata();
 	initAdminList(&AList);
 	loadingListdata(&List);

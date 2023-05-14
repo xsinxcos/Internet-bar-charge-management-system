@@ -13,11 +13,7 @@ bool newchargeStandard(char *time1,char *time2,double money) {
 		strcpy(p->time1, time1);
 		strcpy(p->time2, time2);
 		p->money = money;
-		p->next = NULL;
-		if (strcmp(p->time1, "time") == 0) {
-			free(p);
-			return false;
-		}
+		p->next = NULL;		
 		while (rear->next != NULL) {
 			rear = rear->next;
 		}
@@ -40,19 +36,21 @@ void newchargingStandardPage() {
 			printf("					输入计费标准：\n");
 			while (1) {
 				printf("					输入某个时间段的计费标准(例如0：00)：\n");
-				printf("					当输入time时结束\n");
-				scanf("%s%s", time1,time2);				
+				printf("					当输入time时结束\n					");
+				scanf("%s", time1);	
+				if (strcmp(time1, "time") == 0) {
+					printf("					新增结束，即将返回上一页\n");
+					saveChargeListdata();
+					break;
+				}
+				printf("					");
+				scanf("%s", time2);
 				printf("\n");
-				printf("					输入该时间段的计费标准（元/小时）：\n				");
+				printf("					输入该时间段的计费标准（元/小时）：\n					");
 				scanf("%lf", &money);
 				printf("\n");
 				if (newchargeStandard(time1, time2, money)) {
 					printf("					新增成功，即将继续新增\n");
-				}
-				else {
-					printf("					新增结束，即将返回上一页\n");
-					saveChargeListdata();
-					break;
 				}
 				_sleep(1500);
 				system("cls");
@@ -223,10 +221,12 @@ void loadingChargeListdata() {
 		fclose(CHARGE_LIST);
 		return;
 	}
-	chargelist* p = Clist->next;
+	rewind(CHARGE_LIST);
+
+	chargelist temp;
 	while (!feof(CHARGE_LIST)) {
-		fread(&p, sizeof(chargelist), 1, CHARGE_LIST);
-		newchargeStandard(p->time1, p->time2, p->money);
+		fread(&temp, sizeof(chargelist), 1, CHARGE_LIST);
+		newchargeStandard(temp.time1, temp.time2, temp.money);
 	}
 	fclose(CHARGE_LIST);
 	return;

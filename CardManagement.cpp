@@ -171,7 +171,7 @@ void loadingListdata(cardlist* Alist) {
 		return ;
 	}
 	rewind(CARD_LIST);
-	cardnode* p = Alist->head;
+	//cardnode* p = Alist->head;
 	cardnode temp;
 	while (!feof(CARD_LIST))
 	{
