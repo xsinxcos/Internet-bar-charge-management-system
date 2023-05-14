@@ -77,8 +77,13 @@ bool deleteCard(cardlist* Alist, char* checkID, char* checkpassword);	//注销卡
 void saveListdata(cardlist* Alist);										//数据保存（卡）
 void loadingListdata(cardlist* Alist);									//数据读取（卡）
 
-void ListInitiate(chargelist** Clist);
-void newchargingStandardPage();
+void ListInitiate(chargelist** Clist);                                  //创建计费标准的链表
+void newchargingStandard();                                             //新增计费标准
+chargelist* enquirychargingStandard(char* time);                        //查询计费标准
+bool deletechargingStandard(char* time1, char* time2);                  //删除计费标准
+bool changechargingStandard(char* time1, char* time2, double money);    //修改计费标准
+void saveChargeListdata();                                              //数据保存（计费标准）
+void loadingChargeListdata();                                           //数据读取（计费标准）
 
 bool Recharge(char* ID, char* password, float rechargeMoney);			//充值
 bool returnCharge(char* ID, char* password);							//退费

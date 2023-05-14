@@ -1,40 +1,41 @@
-#include<stdio.h>
+ï»¿#include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include"operate.h"
 
-cardlist List;		//È«¾Ö±äÁ¿£¬´¢´æ¿¨µÄĞÅÏ¢
-Adminlist AList;	//È«¾Ö±äÁ¿£¬´¢´æ¹ÜÀíÔ±ĞÅÏ¢
-chargelist *Clist;       //È«¾Ö±äÁ¿£¬´¢´æ¼Æ·Ñ±ê×¼
+cardlist List;		//å…¨å±€å˜é‡ï¼Œå‚¨å­˜å¡çš„ä¿¡æ¯
+Adminlist AList;	//å…¨å±€å˜é‡ï¼Œå‚¨å­˜ç®¡ç†å‘˜ä¿¡æ¯
+chargelist *Clist;       //å…¨å±€å˜é‡ï¼Œå‚¨å­˜è®¡è´¹æ ‡å‡†
 
-bool cardManagementKey;					//¿¨¹ÜÀíÈ¨ÏŞ
-bool costManagementKey;					//¼Æ·Ñ¹ÜÀíÈ¨ÏŞ
-bool BillingManagementKey;				//·ÑÓÃ¹ÜÀíÈ¨ÏŞ
-bool BillingStanderManaagementKey;		//¼Æ·Ñ±ê×¼¹ÜÀíÈ¨ÏŞ
-bool queryStatisicsKey;					//²éÑ¯Í³¼ÆÈ¨ÏŞ
-bool rightsManagementKey;				//È¨ÏŞ¹ÜÀíÈ¨ÏŞ
+bool cardManagementKey;					//å¡ç®¡ç†æƒé™
+bool costManagementKey;					//è®¡è´¹ç®¡ç†æƒé™
+bool BillingManagementKey;				//è´¹ç”¨ç®¡ç†æƒé™
+bool BillingStanderManaagementKey;		//è®¡è´¹æ ‡å‡†ç®¡ç†æƒé™
+bool queryStatisicsKey;					//æŸ¥è¯¢ç»Ÿè®¡æƒé™
+bool rightsManagementKey;				//æƒé™ç®¡ç†æƒé™
 
 int main(void) 
 {
 	initRights();
 	initCardList(&List);
+	loadingChargeListdata();
 	initAdminList(&AList);
 	loadingListdata(&List);
 	loadingAdmindata(&AList);
-	cardManagementKey = true;					//¿¨¹ÜÀíÈ¨ÏŞ
-	costManagementKey=true;					//¼Æ·Ñ¹ÜÀíÈ¨ÏŞ
-	BillingManagementKey=true;				//·ÑÓÃ¹ÜÀíÈ¨ÏŞ
-	BillingStanderManaagementKey=true;		//¼Æ·Ñ±ê×¼¹ÜÀíÈ¨ÏŞ
-	queryStatisicsKey=true;					//²éÑ¯Í³¼ÆÈ¨ÏŞ
-	rightsManagementKey=true;				//È¨ÏŞ¹ÜÀíÈ¨ÏŞ
-	while (1)								//µÚÒ»²ãÑ­»·ÎªbeginÒ³(Ê¹ÓÃswitch caseÊµÏÖ×Ó¹¦ÄÜ)
+	cardManagementKey = true;					//å¡ç®¡ç†æƒé™
+	costManagementKey=true;					//è®¡è´¹ç®¡ç†æƒé™
+	BillingManagementKey=true;				//è´¹ç”¨ç®¡ç†æƒé™
+	BillingStanderManaagementKey=true;		//è®¡è´¹æ ‡å‡†ç®¡ç†æƒé™
+	queryStatisicsKey=true;					//æŸ¥è¯¢ç»Ÿè®¡æƒé™
+	rightsManagementKey=true;				//æƒé™ç®¡ç†æƒé™
+	while (1)								//ç¬¬ä¸€å±‚å¾ªç¯ä¸ºbeginé¡µ(ä½¿ç”¨switch caseå®ç°å­åŠŸèƒ½)
 	{
 		system("cls");
 		beginPage();
-		char operate = 0;					//operateÎª½øĞĞ²Ù×÷µÄÖ¸Áî
+		char operate = 0;					//operateä¸ºè¿›è¡Œæ“ä½œçš„æŒ‡ä»¤
 		scanf(" %c", &operate);
 		while (operate - '0' <= 0 || operate - '0' > 8) {
-			printf("ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë\n");
+			printf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 			scanf(" %c", &operate);
 		}
 		system("cls");
