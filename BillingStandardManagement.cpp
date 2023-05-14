@@ -74,10 +74,18 @@ int my_strcmp(char* s1, char* s2) {
 }
 
 chargelist * enquirychargingStandard (char *time){
+	char updatatime1[20] = "24:00",updatatime2[20]="0:00";
 	chargelist* p = Clist->next;
 	while (p != NULL) {
-		if (my_strcmp(p->time1, time) <= 0 && my_strcmp(p->time2, time) > 0) {
-			return p;
+		if (my_strcmp(p->time1, p->time2) < 0) {
+			if (my_strcmp(p->time1, time) <= 0 && my_strcmp(p->time2, time) > 0) {
+				return p;
+			}
+		}
+		if (my_strcmp(p->time1, p->time2) > 0) {
+			if ((my_strcmp(p->time1, time) <= 0 && my_strcmp(updatatime1, time) > 0) || (my_strcmp(updatatime2, time) <= 0 && my_strcmp(p->time2, time) > 0)){
+				return p;
+			}
 		}
 		p = p->next;
 	}
@@ -92,7 +100,6 @@ void enquirychargingStandardPage() {
 	if (p) {
 		printf("					查询成功，该时间段计费标准如下：\n");
 		printf("					计费标准为：%.2f（元/小时）\n", p->money);
-		printf("					即将返回上一页\n");
 	}
 	else printf("					查询失败\n");
 	printf("					输入数字1后，继续进行查询\n					输入数字0，退出查询\n");
