@@ -5,6 +5,7 @@
 
 cardlist List;		//全局变量，储存卡的信息
 Adminlist AList;	//全局变量，储存管理员信息
+Consumerlist *BList;	//全局变量，储存消费信息
 chargelist *Clist;       //全局变量，储存计费标准
 
 bool cardManagementKey;					//卡管理权限

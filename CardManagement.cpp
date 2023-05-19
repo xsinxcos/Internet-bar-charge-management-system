@@ -41,9 +41,19 @@ void addCardPage() {
 	printf("					开卡金额：\n					");
 	scanf("%f", &money);
 	printf("\n");
-	if (addCard(&List, ID, password, money)) {
+	cardnode* temp = enquiryCard(&List, ID);			//用来检测卡号是否已存在
+	if (temp == NULL && addCard(&List, ID, password, money)) {
 		printf("						卡添加成功,即将返回上一页\n");
 		saveListdata(&List);
+	}
+	else if (temp != NULL && addCard(&List, ID, password, money)) {
+		if (temp->state == true)
+			printf("						卡号已存在并且已激活\n");
+		else {
+			printf("						卡号已存在并且已注销，已重新激活\n");
+			temp->state = true;
+			saveListdata(&List);
+		}
 	}
 	else printf("					添加失败\n");
 	_sleep(1500);

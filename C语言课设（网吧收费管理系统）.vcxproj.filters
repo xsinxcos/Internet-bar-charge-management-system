@@ -47,5 +47,23 @@
     <ClInclude Include="operate.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="BillingManagement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BillingStandardManagement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CardManagement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RightsManagement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CostManagement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

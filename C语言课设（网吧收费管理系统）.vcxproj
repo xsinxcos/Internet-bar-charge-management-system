@@ -139,7 +139,13 @@
     <ClCompile Include="System.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BillingManagement.h" />
+    <ClInclude Include="BillingStandardManagement.h" />
+    <ClInclude Include="CardManagement.h" />
+    <ClInclude Include="CostManagement.h" />
     <ClInclude Include="operate.h" />
+    <ClInclude Include="RightsManagement.h" />
+    <ClInclude Include="System.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
