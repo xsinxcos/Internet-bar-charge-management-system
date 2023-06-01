@@ -23,44 +23,6 @@ void beginPage(void)
 	printf("\n");
 	printf("				7.系统\t	8.退出程序\t\n");
 	printf("			  ---------------------------------------------------\n");
-	//char operate = 0;	//operate为进行操作的指令
-	//scanf(" %c", &operate);
-	//while (operate - '0' <= 0 || operate - '0' > 8) {
-	//	printf("输入错误，请重新输入\n");
-	//	scanf(" %c", &operate);
-	//}
-	//system("cls");
-	//switch (operate)
-	//{
-	//case '1':
-	//	cardManagement();
-	//	break;
-	//case '2':
-	//	billingStandardManagement();
-	//	break;
-	//case '3':
-	//	billingManagement();
-	//	break;
-	//case '4':
-	//	costManagement();
-	//	break;
-	//case '5':
-	//	queryStatistics();
-	//	break;
-	//case '6':
-	//	rightsManagement();
-	//	break;
-	//case '7':
-	//	System();
-	//	break;
-	//case '8':
-	//	Exit();
-	//	break;
-	//default:
-	//	printf("error：输入的字符不符合要求，请重新输入\n\n");
-	//	break;
-	//}
-	//exit(0);
 }
 
 void cardManagement() {
@@ -78,6 +40,7 @@ void cardManagement() {
 		printf("			  ---------------------------------------------------\n");
 		char operate = 0;
 		scanf(" %c", &operate);
+		safe_flush(stdin);					//清除scanf缓存
 		while (operate - '0' <= 0 || operate - '0' >= 6) {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);
@@ -123,6 +86,7 @@ void billingStandardManagement(void) {
 	    printf("			  ---------------------------------------------------\n");
 	    char operate = 0;
 	    scanf(" %c", &operate);
+		safe_flush(stdin);					//清除scanf缓存
 	    while (operate - '0' <= 0 || operate - '0' >= 7) {
 		    printf("输入错误，请重新输入\n");
 		    scanf(" %c", &operate);
@@ -171,6 +135,7 @@ void billingManagement(void) {
 		printf("			  ---------------------------------------------------\n");
 		char operate = 0;
 		scanf(" %c", &operate);
+		safe_flush(stdin);					//清除scanf缓存
 		while (operate - '0' <= 0 || operate - '0' >= 5) {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);
@@ -213,6 +178,7 @@ void costManagement(void) {
 		printf("			  ---------------------------------------------------\n");
 		char operate = 0;
 		scanf(" %c", &operate);
+		safe_flush(stdin);					//清除scanf缓存
 		while (operate - '0' <= 0 || operate - '0' >= 5) {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);
@@ -253,6 +219,7 @@ void queryStatistics(void) {
 	printf("			  ---------------------------------------------------\n");
 	char operate = 0;
 	scanf(" %c", &operate);
+	safe_flush(stdin);					//清除scanf缓存
 	while (operate - '0' <= 0 || operate - '0' >= 6) {
 		printf("输入错误，请重新输入\n");
 		scanf(" %c", &operate);
@@ -297,6 +264,7 @@ void rightsManagement(void) {
 		printf("			  ---------------------------------------------------\n");
 		char operate = 0;
 		scanf(" %c", &operate);
+		safe_flush(stdin);					//清除scanf缓存
 		while (operate - '0' <= 0 || operate - '0' >= 6) {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);
@@ -341,6 +309,7 @@ void System(void) {
 		printf("			  ---------------------------------------------------\n");
 		char operate = 0;
 		scanf(" %c", &operate);
+		safe_flush(stdin);					//清除scanf缓存
 		while (operate - '0' <= 0 || operate - '0' >= 4) {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);
@@ -389,4 +358,9 @@ bool rightJudgement(bool rightKey) {
 		return false;
 	}
 	return true;
+}
+void safe_flush(FILE* fp)
+{
+	int ch;
+	while ((ch = fgetc(fp)) != EOF && ch != '\n');
 }

@@ -39,6 +39,7 @@ int main(void)
 		beginPage();
 		char operate = 0;					//operate为进行操作的指令
 		scanf(" %c", &operate);
+		safe_flush(stdin);					//清除scanf缓存
 		while (operate - '0' <= 0 || operate - '0' > 8) {
 			printf("输入错误，请重新输入\n");
 			scanf(" %c", &operate);

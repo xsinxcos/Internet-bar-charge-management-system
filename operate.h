@@ -29,6 +29,9 @@ void statisticaltotalTurnoverPage();			//统计总营业额页面
 void statisticalmonthlyTurnoverPage();			//统计月营业额页面
 
 
+void safe_flush(FILE* fp);					//清除scanf缓冲区
+
+
 
 
 
