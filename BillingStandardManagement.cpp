@@ -231,8 +231,7 @@ void loadingChargeListdata() {
 	rewind(CHARGE_LIST);
 
 	chargelist temp;
-	while (!feof(CHARGE_LIST)) {
-		fread(&temp, sizeof(chargelist), 1, CHARGE_LIST);
+	while (fread(&temp, sizeof(chargelist), 1, CHARGE_LIST) != 0) {
 		newchargeStandard(temp.time1, temp.time2, temp.money);
 	}
 	fclose(CHARGE_LIST);

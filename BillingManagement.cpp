@@ -137,10 +137,9 @@ void loadConsuming() {
 	}
 	rewind(CARD_LIST);
 	Consumernode* p = BList.head;
-	while (!feof(CARD_LIST))
-	{
-		Consumernode* temp = (Consumernode*)calloc(1,sizeof(Consumernode));
-		fread(temp, sizeof(Consumernode), 1, CARD_LIST);
+	Consumernode* temp = (Consumernode*)calloc(1, sizeof(Consumernode));
+	while (fread(temp, sizeof(Consumernode), 1, CARD_LIST) != 0)
+	{		
 		temp->next = NULL;
 		p->next = temp;
 		p = p->next;
