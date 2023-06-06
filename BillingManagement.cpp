@@ -139,9 +139,7 @@ void loadConsuming() {
 	Consumernode* p = BList.head;
 	Consumernode* temp = (Consumernode*)calloc(1, sizeof(Consumernode));
 	while (fread(temp, sizeof(Consumernode), 1, CARD_LIST) != 0)
-	{
-		Consumernode* temp = (Consumernode*)calloc(1,sizeof(Consumernode));
-		fread(temp, sizeof(Consumernode), 1, CARD_LIST);
+	{		
 		temp->next = NULL;
 		p->next = temp;
 		p = p->next;

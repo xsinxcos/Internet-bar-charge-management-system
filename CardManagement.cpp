@@ -185,7 +185,6 @@ void loadingListdata(cardlist* Alist) {
 	cardnode temp;
 	while (fread(&temp, sizeof(cardnode), 1, CARD_LIST) != 0)
 	{
-		fread(&temp, sizeof(cardnode), 1, CARD_LIST);
 		addCard(&List, temp.cardID, temp.cardPassword, temp.cardMoney);
 		if (temp.state == false) deleteCard(&List, temp.cardID, temp.cardPassword);
 	}

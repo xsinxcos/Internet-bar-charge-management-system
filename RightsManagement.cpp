@@ -204,7 +204,6 @@ void loadingAdmindata(Adminlist* Alist) {
 	Administrator temp;
 	while (fread(&temp, sizeof(cardnode), 1, CARD_LIST) != 0)
 	{
-		fread(&temp, sizeof(cardnode), 1, CARD_LIST);
 		addAdminNode(&AList, temp);
 	}
 	fclose(CARD_LIST);
