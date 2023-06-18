@@ -208,11 +208,11 @@ void costManagement(void) {
 
 void queryStatistics(void) {
 	printf("			  （￣へ￣）-----------------------------------------\n");
-	printf("					欢迎使用网吧收费管理系统\n");
-	printf("				 请输入以下命令所对应的数字进行相关操作\n");
-	printf("\n");
-	printf("\n");
-	printf("				1.查询消费记录\t2.统计总营业额\t3.统计月营业额\t\n");
+    printf("					欢迎使用网吧收费管理系统\n");
+    printf("				 请输入以下命令所对应的数字进行相关操作\n");
+    printf("\n");
+    printf("\n");
+    printf("				1.查询消费记录\t2.统计总营业额\t3.统计月营业额\t\n");
 	printf("\n");
 	printf("				4.返回上一页\t5.退出程序\t\n");
 	printf("\n");
@@ -248,7 +248,7 @@ void queryStatistics(void) {
 	}
 	exit(0);
 
-};
+}
 
 void rightsManagement(void) {
 	while (1) {

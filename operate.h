@@ -9,6 +9,7 @@
 #include"System.h"
 #include"RightsManagement.h"
 #include"CostManagement.h"
+#include"QueryStatistics.h"
 
 void initRights(void);
 void beginPage(void);						//一开始进入时的页面的调用
