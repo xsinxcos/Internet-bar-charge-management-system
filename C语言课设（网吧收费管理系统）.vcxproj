@@ -147,6 +147,7 @@
     <ClInclude Include="CardManagement.h" />
     <ClInclude Include="CostManagement.h" />
     <ClInclude Include="operate.h" />
+    <ClInclude Include="QueryStatistics.h" />
     <ClInclude Include="RightsManagement.h" />
     <ClInclude Include="System.h" />
   </ItemGroup>

@@ -155,7 +155,7 @@ void saveRecordsConsume(Consumernode *saveData) {
 		exit(0);
 	}
 	saveData->consumpAmount = settleConsuming(saveData->upTime, saveData->downTime);
-	printf("%lf", saveData->consumpAmount);
+	printf("此次消费金额为%lf\n", saveData->consumpAmount);
 	fwrite(saveData, sizeof(Consumernode), 1, CARD_LIST);
 	fclose(CARD_LIST);
 	return;
